@@ -1,4 +1,4 @@
-export type Category = 'todos' | 'brincos' | 'colares' | 'pulseiras' | 'aneis' | 'conjuntos';
+export type Category = 'todos' | 'brincos' | 'colares' | 'pulseiras' | 'aneis' | 'conjuntos' | 'relogios' | 'acessorios';
 export type MaterialType = 'todos' | 'ouro' | 'prata' | 'aco-inox';
 
 export interface Product {
@@ -38,7 +38,6 @@ export interface CartItem {
 
 export interface OrderForm {
   name: string;
-  cpf: string;
   email: string;
   phone: string;
   deliveryMethod: 'pickup' | 'delivery';

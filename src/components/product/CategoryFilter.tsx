@@ -7,7 +7,7 @@ interface CategoryFilterProps {
   counts: Record<string, number>;
 }
 
-const CATEGORIES: Category[] = ['todos', 'brincos', 'colares', 'pulseiras', 'aneis', 'conjuntos'];
+const CATEGORIES: Category[] = ['todos', 'brincos', 'colares', 'pulseiras', 'aneis', 'conjuntos', 'relogios', 'acessorios'];
 
 const CategoryFilter = ({ active, onChange, counts }: CategoryFilterProps) => {
   return (

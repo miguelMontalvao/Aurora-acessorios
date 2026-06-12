@@ -320,6 +320,8 @@ export const categoryLabels: Record<string, string> = {
   pulseiras: 'Pulseiras',
   aneis: 'Anéis',
   conjuntos: 'Conjuntos',
+  relogios: 'Relógios',
+  acessorios: 'Acessórios',
 };
 
 export const materialLabels: Record<string, string> = {

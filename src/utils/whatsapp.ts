@@ -33,7 +33,6 @@ export const buildOrderMessage = (items: CartItem[], form: OrderForm, subtotal: 
 
 👤 *DADOS DO CLIENTE*
   Nome: ${form.name}
-  CPF: ${form.cpf}
   Telefone: ${form.phone}
   E-mail: ${form.email}
 

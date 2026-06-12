@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { MapPin, User, CreditCard, MessageSquare, Loader2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import type { OrderForm } from '../types';
-import { formatCPF, formatPhone, formatCEP, validateCPF } from '../utils/formatters';
+import { formatPhone, formatCEP } from '../utils/formatters';
 import { formatCurrency } from '../utils/formatters';
 import { fetchAddressByCEP } from '../utils/cep';
 import { sendOrderToWhatsApp } from '../utils/whatsapp';
@@ -16,7 +16,7 @@ const PAYMENT_OPTIONS = [
 ];
 
 const INITIAL_FORM: OrderForm = {
-  name: '', cpf: '', email: '', phone: '',
+  name: '', email: '', phone: '',
   deliveryMethod: 'pickup',
   cep: '', street: '', number: '', complement: '',
   neighborhood: '', city: '', state: '',
@@ -67,7 +67,6 @@ const CheckoutPage = () => {
   const validateStep1 = () => {
     const e: typeof errors = {};
     if (!form.name.trim()) e.name = 'Nome obrigatório';
-    if (!form.cpf || !validateCPF(form.cpf)) e.cpf = 'CPF inválido';
     if (!form.email.includes('@')) e.email = 'E-mail inválido';
     if (form.phone.replace(/\D/g, '').length < 10) e.phone = 'Telefone inválido';
     setErrors(e);
@@ -172,19 +171,7 @@ const CheckoutPage = () => {
                     />
                     {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                   </div>
-                  <div>
-                    <label className="font-body text-xs tracking-widest2 uppercase text-marrom/60 block mb-1.5">CPF *</label>
-                    <input
-                      type="text"
-                      value={form.cpf}
-                      onChange={e => set('cpf', formatCPF(e.target.value))}
-                      placeholder="000.000.000-00"
-                      className={inputClass('cpf')}
-                      maxLength={14}
-                    />
-                    {errors.cpf && <p className="text-red-500 text-xs mt-1">{errors.cpf}</p>}
-                  </div>
-                  <div>
+                  <div className="md:col-span-2">
                     <label className="font-body text-xs tracking-widest2 uppercase text-marrom/60 block mb-1.5">
                       Telefone / WhatsApp *
                     </label>

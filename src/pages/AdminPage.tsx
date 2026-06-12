@@ -34,6 +34,8 @@ const CATEGORIES: { value: Category; label: string }[] = [
   { value: 'pulseiras', label: 'Pulseiras' },
   { value: 'aneis', label: 'Anéis' },
   { value: 'conjuntos', label: 'Conjuntos' },
+  { value: 'relogios', label: 'Relógios' },
+  { value: 'acessorios', label: 'Acessórios' },
 ];
 
 const MATERIAL_TYPES: { value: MaterialType; label: string }[] = [
