@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #EAE2D3;
+    color: #5A3E2B;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: #C7A86D; color: #5A3E2B; }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #EAE2D3; }
+  ::-webkit-scrollbar-thumb { background: #C7A86D; border-radius: 3px; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-marrom text-bege font-body font-medium tracking-widest2 uppercase text-xs px-8 py-3.5
+           transition-all duration-300 hover:bg-marrom-dark hover:shadow-gold-lg
+           focus:outline-none focus:ring-2 focus:ring-dourado focus:ring-offset-2 focus:ring-offset-bege;
+  }
+  .btn-ghost {
+    @apply border border-marrom text-marrom font-body font-medium tracking-widest2 uppercase text-xs px-8 py-3.5
+           transition-all duration-300 hover:bg-marrom hover:text-bege
+           focus:outline-none focus:ring-2 focus:ring-dourado;
+  }
+  .btn-gold {
+    @apply bg-dourado text-marrom-dark font-body font-semibold tracking-widest2 uppercase text-xs px-8 py-3.5
+           transition-all duration-300 hover:bg-dourado-dark hover:shadow-gold-lg
+           focus:outline-none focus:ring-2 focus:ring-dourado focus:ring-offset-2;
+  }
+  .section-title {
+    @apply font-display text-4xl md:text-5xl font-light text-marrom leading-tight;
+  }
+  .section-subtitle {
+    @apply font-body text-xs tracking-widest2 uppercase text-dourado font-medium;
+  }
+  .divider-gold {
+    @apply flex items-center gap-4 w-full;
+  }
+  .divider-gold::before,
+  .divider-gold::after {
+    content: '';
+    @apply flex-1 h-px bg-dourado opacity-40;
+  }
+  .input-field {
+    @apply w-full bg-white border border-nude text-marrom font-body text-sm px-4 py-3
+           placeholder-nude focus:outline-none focus:ring-1 focus:ring-dourado focus:border-dourado
+           transition-colors duration-200;
+  }
+  .ornament {
+    @apply text-dourado text-lg tracking-widest3 font-display font-light;
+  }
+  .card-product {
+    @apply bg-white relative overflow-hidden transition-all duration-300
+           hover:shadow-soft-lg hover:-translate-y-1;
+  }
+  .badge {
+    @apply absolute top-3 left-3 z-10 text-xs font-body font-medium tracking-widest2 uppercase px-2.5 py-1;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #C7A86D 0%, #D4B98A 50%, #A88945 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-texture {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235A3E2B' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #C7A86D #EAE2D3;
+  }
+}
+
+/* Stagger animation helpers */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Fade in on scroll (intersection observer driven) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animação dos cards do catálogo — CSS puro, independente de IntersectionObserver */
+@keyframes catalogCardIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
