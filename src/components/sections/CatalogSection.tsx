@@ -6,7 +6,7 @@ import ProductCard from '../product/ProductCard';
 import CategoryFilter from '../product/CategoryFilter';
 
 const MATERIALS: MaterialType[] = ['todos', 'ouro', 'prata', 'aco-inox'];
-const materialIcons: Record<string, string> = { todos: '', ouro: '🪙', prata: '🥈', 'aco-inox': '⚙️' };
+const materialIcons: Record<string, string> = { todos: '', ouro: '', prata: '', 'aco-inox': '' };
 
 const CatalogSection = () => {
   const { products } = useProducts();
@@ -59,7 +59,7 @@ const CatalogSection = () => {
               <div className="h-px w-12 bg-dourado/40" />
             </div>
             <p className="font-body text-marrom/60 text-sm max-w-md mx-auto">
-              Semi-joias selecionadas com cuidado para realçar sua beleza.
+              O detalhe perfeito para cada versão de você.
             </p>
           </div>
 

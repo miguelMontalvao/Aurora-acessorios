@@ -101,7 +101,7 @@ const HeroSection = () => {
           className="flex items-center gap-6 mt-12 opacity-0 animate-fade-in stagger-5"
           style={{ animationFillMode: 'forwards' }}
         >
-          {['Banhada a ouro 18k', 'Banhada a prata 925', 'Aço inoxidável'].map((item, i) => (
+          {['Banhado a ouro 18k', 'Banhado a prata 925', 'Aço inoxidável'].map((item, i) => (
             <div key={item} className="flex items-center gap-2 text-marrom/50">
               {i > 0 && (
                 <svg width="4" height="4" viewBox="0 0 4 4" className="flex-shrink-0">
